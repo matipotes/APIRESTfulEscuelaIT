@@ -19,7 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });*/
 
 Route::apiresource('users', 'UserController');
-Route::apiresource('products', 'ProductController');
+Route::apiresource('buyers', 'BuyerController');
+Route::apiresource('sellers', 'SellerController');
 Route::apiresource('products', 'ProductController');
 Route::apiresource('transactions', 'TransactionController');
 Route::apiresource('categories', 'CategoryController');
