@@ -16,9 +16,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return response()->json(['data' => $users], 200);
-
-        return $users;
+        return $this->showAll($users);
     }
 
     /**
@@ -49,7 +47,7 @@ class UserController extends Controller
 
         $user = User::create($data);
 
-        return response()->json(['data' => $user], 201);
+        return $this->showOne($user, 201);
     }
 
     /**
@@ -60,7 +58,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return response()->json(['data' => $user], 200);
+        return $this->showOne($user);
     }
 
     /**
@@ -102,13 +100,12 @@ class UserController extends Controller
         }
 
         if (!$user->isDirty()) {
-            return response()->json(['error' => ['code' => 422, 'message' =>
-            'Please specify at least one different value']], 422);
+            return $this->errorResponse('Please specify at least one different value', 422);
         }
 
         $user->save();
 
-        return response()->json(['data' => $user], 200);
+        return $this->showOne($user);
     }
 
     /**
@@ -121,6 +118,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return response()->json(['data' => $user], 200);
+        return $this->showOne($user);
     }
 }
