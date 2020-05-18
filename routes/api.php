@@ -18,9 +18,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
 
-Route::apiresource('users', 'UserController');
-Route::apiresource('buyers', 'BuyerController', ['only' => ['index', 'show']]);
-Route::apiresource('sellers', 'SellerController', ['only' => ['index', 'show']]);
-Route::apiresource('products', 'ProductController');
-Route::apiresource('transactions', 'TransactionController');
-Route::apiresource('categories', 'CategoryController');
+Route::apiresource('users', 'User\UserController');
+
+
+Route::apiresource('buyers', 'Buyer\BuyerController', ['only' => ['index', 'show']]);
+Route::apiresource('buyers.transactions', 'Buyer\BuyerTransactionController', ['only' => ['index']]);
+Route::apiresource('buyers.products', 'Buyer\BuyerProductController', ['only' => ['index']]);
+
+
+Route::apiresource('sellers', 'Seller\SellerController', ['only' => ['index', 'show']]);
+
+
+Route::apiresource('products', 'Product\ProductController', ['only' => ['index', 'show']]);
+
+
+Route::apiresource('transactions', 'Transaction\TransactionController', ['only' => ['index', 'show']]);
+Route::apiresource('transactions.categories', 'Transaction\TransactionCategoryController', ['only' => ['index']]);
+Route::apiresource('transactions.sellers', 'Transaction\TransactionSellerController', ['only' => ['index']]);
+
+
+Route::apiresource('categories', 'Category\CategoryController');
