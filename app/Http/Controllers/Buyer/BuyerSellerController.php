@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Buyer;
 
 use App\Buyer;
 use App\Http\Controllers\Controller;
-use App\Product;
+use App\Seller;
 use Illuminate\Http\Request;
 
-class BuyerProductController extends Controller
+class BuyerSellerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,13 @@ class BuyerProductController extends Controller
      */
     public function index(Buyer $buyer)
     {
-        $products = $buyer->transactions()->with('product')->get()->pluck('product');
+        $sellers = $buyer->transactions()
+            ->with('product.seller')
+            ->get()
+            ->pluck('product.seller')
+            ->unique('id')
+            ->value();
 
-
-        return $this->showAll($products);
+        return $this->showAll($sellers);
     }
 }
