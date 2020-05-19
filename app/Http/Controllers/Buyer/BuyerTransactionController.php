@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Buyer;
 
 use App\Buyer;
 use App\Http\Controllers\Controller;
-use App\Transaction;
-use Illuminate\Http\Request;
+//use App\Transaction;
+//use Illuminate\Http\Request;
 
 class BuyerTransactionController extends Controller
 {

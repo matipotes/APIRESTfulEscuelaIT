@@ -7,7 +7,7 @@ use App\Transaction;
 use App\User;
 use Faker\Generator as Faker;
 
-$factory->define(Transaction::class, function (Faker $faker) {
+$factory->define(App\Transaction::class, function (Faker $faker) {
     $seller = Seller::has('products')->get()->random();
     $buyer = User::all()->except($seller->id)->random();
     return [

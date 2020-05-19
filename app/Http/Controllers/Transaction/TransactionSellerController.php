@@ -21,6 +21,4 @@ class TransactionSellerController extends Controller
 
         return $this->showOne($seller);
     }
-
-   
 }

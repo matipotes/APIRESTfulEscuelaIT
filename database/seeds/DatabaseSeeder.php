@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             function ($product) use($categories) {
 
                 $randomCategories = $categories->random(mt_rand(1, 5))->pluck('id');
-                $product->categories()->attach($categories);
+                $product->categories()->attach($randomCategories);
             }
         );
 

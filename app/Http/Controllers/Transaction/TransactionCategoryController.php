@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Transaction;
 
-use App\Category;
+//use App\Category;
 use App\Http\Controllers\Controller;
 use App\Transaction;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class TransactionCategoryController extends Controller
 {

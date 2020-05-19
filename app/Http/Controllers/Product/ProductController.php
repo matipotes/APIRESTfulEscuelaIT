@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Product;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
