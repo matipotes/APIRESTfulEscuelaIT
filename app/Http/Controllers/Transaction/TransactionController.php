@@ -31,5 +31,4 @@ class TransactionController extends Controller
     {
         return $this->showOne($transaction);
     }
-
 }

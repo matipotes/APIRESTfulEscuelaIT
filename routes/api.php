@@ -25,6 +25,7 @@ Route::apiresource('buyers', 'Buyer\BuyerController', ['only' => ['index', 'show
 Route::apiresource('buyers.transactions', 'Buyer\BuyerTransactionController', ['only' => ['index']]);
 Route::apiresource('buyers.products', 'Buyer\BuyerProductController', ['only' => ['index']]);
 Route::apiresource('buyers.sellers', 'Buyer\BuyerSellerController', ['only' => ['index']]);
+Route::apiresource('buyers.categories', 'Buyer\BuyerCategoryController', ['only' => ['index']]);
 
 
 Route::apiresource('sellers', 'Seller\SellerController', ['only' => ['index', 'show']]);

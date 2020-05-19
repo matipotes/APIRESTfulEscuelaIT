@@ -69,13 +69,12 @@ class Handler extends ExceptionHandler
         if ($exception instanceof NotFoundHttpException) {
             return $this->errorResponse('Does not exist any endpoint matching with that URL', 404);
         }
-
+/*
         if ($exception instanceof NotFoundHttpException) {
-            return $this->errorResponse(
-                'Does not exist any endpoint matching with that URL',
-                $exception->getStatusCode()
+            return $this->errorResponse('Does not exist any endpoint matching with that URL',
+            $exception->getStatusCode()
             );
-        }
+        }*/
 
         if ($exception instanceof MethodNotAllowedHttpException) {
             return $this->errorResponse(

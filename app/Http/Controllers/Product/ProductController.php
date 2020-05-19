@@ -32,7 +32,4 @@ class ProductController extends Controller
     {
         return $this->showOne($product);
     }
-
-
-  
 }
