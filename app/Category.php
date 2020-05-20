@@ -18,4 +18,8 @@ class Category extends Model
     {
         return $this->belongsTomany(Product::class);
     }
+
+    protected $hidden = [
+        'pivot',
+    ];
 }

@@ -36,4 +36,8 @@ class Product extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    protected $hidden = [
+        'pivot',  //oculta los campos de la tabla pivot category_product
+    ];
 }

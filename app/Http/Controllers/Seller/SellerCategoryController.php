@@ -1,26 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Buyer;
+namespace App\Http\Controllers\Seller;
 
-use App\Buyer;
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Seller;
 use Illuminate\Http\Request;
 
-class BuyerCategoryController extends Controller
+class SellerCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param  \App\Buyer  $buyer
+     * @param  \App\Seller  $seller
      * @return \Illuminate\Http\Response
      */
-    public function index(Buyer $buyer)
+    public function index(Seller $seller)
     {
-        $categories = $buyer->transactions()
-            ->with('product.categories')
+        $categories = $seller->products()
+            ->whereHas('categories')
+            ->with('categories')
             ->get()
-            ->pluck('product.categories')
+            ->pluck('categories')
             ->collapse()
             ->unique('id')
             ->values();

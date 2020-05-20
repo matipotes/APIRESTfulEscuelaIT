@@ -29,9 +29,17 @@ Route::apiresource('buyers.categories', 'Buyer\BuyerCategoryController', ['only'
 
 
 Route::apiresource('sellers', 'Seller\SellerController', ['only' => ['index', 'show']]);
+Route::apiresource('sellers.transactions', 'Seller\SellerTransactionController', ['only' => ['index']]);
+Route::apiresource('sellers.categories', 'Seller\SellerCategoryController', ['only' => ['index']]);
+Route::apiresource('sellers.buyers', 'Seller\SellerBuyerController', ['only' => ['index']]);
+Route::apiresource('sellers.products', 'Seller\SellerProductController', ['except' => ['show']]);
 
 
 Route::apiresource('products', 'Product\ProductController', ['only' => ['index', 'show']]);
+Route::apiresource('products.transactions', 'Product\ProductTransactionController', ['only' => ['index']]);
+Route::apiresource('products.buyers', 'Product\ProductBuyerController', ['only' => ['index']]);
+Route::apiresource('products.categories', 'Product\ProductCategoryController', ['only' => ['index', 'update', 'destroy']]);
+Route::apiresource('products.buyers.transactions', 'Product\ProductBuyerTransactionController', ['only' => ['store']]);
 
 
 Route::apiresource('transactions', 'Transaction\TransactionController', ['only' => ['index', 'show']]);
@@ -40,3 +48,7 @@ Route::apiresource('transactions.sellers', 'Transaction\TransactionSellerControl
 
 
 Route::apiresource('categories', 'Category\CategoryController');
+Route::apiresource('categories.transactions', 'Category\CategoryTransactionController', ['only' => ['index']]);
+Route::apiresource('categories.buyers', 'Category\CategoryBuyerController', ['only' => ['index']]);
+Route::apiresource('categories.products', 'Category\CategoryProductController', ['only' => ['index']]);
+Route::apiresource('categories.sellers', 'Category\CategorySellerController', ['only' => ['index']]);
